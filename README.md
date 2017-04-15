@@ -40,8 +40,23 @@ You can use `Match User` or `Match Group` to parse public keys against logins, b
 
 ## Gotchas
 
-TODO: ed25519
+### Ed25519
+
+ssh public key historicly have been created with RSA algorithm. But like everytghing in tech, that's old by today's standards.
+
+The new shiny algorithm is [Ed25519](https://ed25519.cr.yp.to/). 
+It uses a Diffie-Hellman elliptic-curve, allowing it to be much smaller than tradicional RSA keys. 
+Where a good RSA key starts in 2048 bits, an Ed25519 is just 256.
+
+Combine that with the easeness of reading, storing, curl them, you got a winner.
+
+To generate one, run `$ ssh-keygen -t ed25519` with as many rounds as you see fit, and don't forget to password-protect it.
+
+Copy the contents of its public key to [GitHub key settings](https://github.com/settings/keys) or your project permission object, and you are ready to go.
+
+
 TODO: fail2ban
+
 TODO: API rate limit
 
 ## Contributing
