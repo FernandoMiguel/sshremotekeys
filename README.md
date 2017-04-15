@@ -40,6 +40,7 @@ You can use `Match User` or `Match Group` to parse public keys against logins, b
 
 ## Gotchas
 
+
 ### Ed25519
 
 ssh public key historicly have been created with RSA algorithm. But like everytghing in tech, that's old by today's standards.
@@ -55,9 +56,13 @@ To generate one, run `$ ssh-keygen -t ed25519` with as many rounds as you see fi
 Copy the contents of its public key to [GitHub key settings](https://github.com/settings/keys) or your project permission object, and you are ready to go.
 
 
-TODO: fail2ban
+### fail2ban and general security
 
-TODO: API rate limit
+Please setup your instance with fail2ban, to prevent anyone from hammering your ssh port.
+Also disable root `PermitRootLogin no` and disable passwords `PasswordAuthentication no`. 
+[sshauth-install.sh] already adds `AuthenticationMethods publickey` to `/etc/ssh/sshd_config`
+
+### TODO: API rate limit
 
 ## Contributing
 
