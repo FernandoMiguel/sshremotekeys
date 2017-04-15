@@ -17,7 +17,9 @@ Instead, I've opted to move away from managing keys in the instances, and move t
 ## Installation
 
 [sshauth-install.sh](sshauth-install.sh) needs to be run in the instance.
+
 You will need to modify [https://s3.amazonaws.com/BUCKET/userkeys.sh] to use your server personalised version.
+
 The script will modify ssh_config, pull your custom [userkeys-github.sh](userkeys-github.sh)  or [userkeys-s3.sh](userkeys-s3.sh), and restart sshd.
 
 ## Usage
@@ -27,6 +29,10 @@ SSH AuthorizedKeysCommand was introduced in [2013's OpenSSH 6.1](https://www.ope
 From the manual:
 > sshd(8): Added a sshd_config(5) option AuthorizedKeysCommand to support fetching authorized_keys from a command in addition to (or instead of) from the filesystem. The command is run under an account specified by an AuthorizedKeysCommandUser sshd_config(5) option.
 
+This allows us to execute an arbitary command when a login attemp it made via ssh. 
+In the case of this setup, it executes userkeys.sh 
+
+Depending 
 
 ## Gotchas
 
