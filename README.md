@@ -56,13 +56,22 @@ To generate one, run `$ ssh-keygen -t ed25519` with as many rounds as you see fi
 Copy the contents of its public key to [GitHub key settings](https://github.com/settings/keys) or your project permission object, and you are ready to go.
 
 
-### fail2ban and general security
+### Fail2Ban and general security
 
-Please setup your instance with fail2ban, to prevent anyone from hammering your ssh port.
-Also disable root `PermitRootLogin no` and disable passwords `PasswordAuthentication no`. 
+Please setup your instance with Fail2Ban, to prevent anyone from hammering your ssh port.
+
+Also disable root `PermitRootLogin no` and disable passwords `PasswordAuthentication no`.
+
 [sshauth-install.sh] already adds `AuthenticationMethods publickey` to `/etc/ssh/sshd_config`
 
-### TODO: API rate limit
+
+### API rate limit
+
+When curling against Internet webservices, developers need to account with services rate limits, in place to prevent abuse.
+
+[GitHub API rate limit](https://developer.github.com/v3/#rate-limiting) is of `60 requests per hour` for unauthenticated requests, and `5000` when used with OAuth.
+
+If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easilly reach the limit and prevent you from legitimately access your server.
 
 ## Contributing
 
