@@ -71,7 +71,9 @@ When curling against Internet webservices, developers need to account with servi
 
 [GitHub API rate limit](https://developer.github.com/v3/#rate-limiting) is of `60 requests per hour` for unauthenticated requests, and `5000` when used with OAuth.
 
-If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easilly reach the limit and prevent you from legitimately access your server.
+If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easilly reach the limit and prevent you from legitimately accessing your server.
+
+An AWS s3 bucket as a limit of `800 GET requests per second`.
 
 ## Contributing
 
