@@ -36,7 +36,9 @@ Depending
 
 ## Gotchas
 
-TODO: Write usage instructions
+TODO: ed25519
+TODO: fail2ban
+TODO: API rate limit
 
 ## Contributing
 
