@@ -54,7 +54,7 @@ Where a good RSA key starts in 2048 bits, an Ed25519 is just 256.
 
 Combine that with the easeness of reading, storing, curl them, you got a winner.
 
-To generate one, run `$ ssh-keygen -t ed25519` with as many rounds as you see fit, and don't forget to password-protect it.
+To generate one, run `$ ssh-keygen -t ed25519` with as many [rounds](https://crypto.stackexchange.com/questions/40311/how-many-kdf-rounds-for-an-ssh-key) as you see fit, and don't forget to password-protect it.
 
 Copy the contents of its public key to [GitHub key settings](https://github.com/settings/keys) or your project permission object, and you are ready to go.
 
