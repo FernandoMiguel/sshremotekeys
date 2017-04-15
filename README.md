@@ -18,6 +18,9 @@ Instead, I've opted to move away from managing keys in the instances, and move t
 
 [sshauth-install.sh](sshauth-install.sh) needs to be run in the instance.
 
+It can be executed at anytime, or ideally during the creation of the instance. When deploying AWS instances, you can pass this with [UserData](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)
+
+###
 You will need to modify [https://s3.amazonaws.com/BUCKET/userkeys.sh] to use your server personalised version.
 
 The script will modify ssh_config, pull your custom [userkeys-github.sh](userkeys-github.sh) or [userkeys-s3.sh](userkeys-s3.sh), and restart sshd.
