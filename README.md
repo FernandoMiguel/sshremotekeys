@@ -58,5 +58,5 @@ TODO: Write credits
 
 ## License
 
-TODO: Write license
-0
+[MIT](LICENSE)
+
