@@ -78,6 +78,12 @@ If you have many devs login into a server or even bot scanning (hence [Fail2Ban]
 
 An AWS s3 bucket as a limit of `800 GET requests per second`.
 
+## Future Improvements
+
+Right now, we are querying GitHub user profiles for sshkeys. 
+
+An advanced process can probably be developed using [GitHub GraphQL API](https://developer.github.com/early-access/graphql/) to queries Teams instead of users, allowing further control over Projects access
+
 ## Contributing
 
 1. Fork it!
