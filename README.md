@@ -1,6 +1,13 @@
-# Project Name
+# SSH with Remote Keys storage
 
-TODO: Write a project description
+With my sysadmin background, being as lazy as possible, I always try to have the lowest overhead maintenance possible over systems.
+Securely maintain ssh keys to access servers is a tricky business. Keys have to be rotated regularly, individuals join/leave projects/companies, ssh key passwords are forgotten, etc.
+
+Typically, admins add ssh keys to ~/.ssh/authorized_keys or %h/.ssh/authorized_keys. 
+Updating these is a nightmare, even with packaging tools like ansile or puppet.
+Some have crons to update these, but that can create a delay, and we all know what happens when you add delays.
+
+Instead
 
 ## Installation
 
