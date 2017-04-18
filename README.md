@@ -23,7 +23,7 @@ It can be executed at anytime, or ideally during the creation of the instance. W
 ###
 You will need to modify [https://s3.amazonaws.com/BUCKET/userkeys.sh] to use your server personalised version.
 
-The script will modify ssh_config, pull your custom [userkeys-github.sh](userkeys-github.sh) or [userkeys-s3.sh](userkeys-s3.sh), and restart sshd.
+The script will modify ssh_config, pull your custom [userkeys.sh](userkeys.sh), and restart sshd.
 
 ## Usage
 
@@ -35,7 +35,7 @@ From the manual:
 This allows us to execute an arbitary command when a login attemp it made via ssh. 
 In the case of this setup, it executes userkeys.sh 
 
-Depending on wether you are curling github API for keys [https://github.com/USER.keys] (for individual devs or extremelly small teams) or a s3 bucket object (one object per set of permissions), you will need to create your custrom [userkeys-github.sh](userkeys-github.sh) or [userkeys-s3.sh](userkeys-s3.sh).
+Depending on wether you are curling github API for keys [https://github.com/USER.keys] (for individual devs or extremelly small teams) or a s3 bucket object (one object per set of permissions), you will need to create your custom [userkeys.sh](userkeys.sh).
 
 When there's an attempt login via ssh, sshd will execute userkeys.sh, which will then curl a file for ssh public keys, and match that against the one provided during login.
 
