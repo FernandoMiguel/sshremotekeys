@@ -9,7 +9,7 @@ set -e
 
 # ideally all keys are in ed25519 format, to make them much smaller compared to RSA2048
 
-cacheFile="$HOME""/.ssh/ak_cache"
+cacheFile="$HOME""/.ssh/authorized_keys_cache"
 cacheValidity="300"
 
 if [ ! -f "$cacheFile" ] || [ "$(($(date +%s) - $(stat -c %Y "$cacheFile")))" -gt "$cacheValidity" ]
