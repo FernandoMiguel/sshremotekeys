@@ -32,8 +32,8 @@ SSH AuthorizedKeysCommand was introduced in [2013's OpenSSH 6.1](https://www.ope
 From the manual:
 > sshd(8): Added a sshd_config(5) option AuthorizedKeysCommand to support fetching authorized_keys from a command in addition to (or instead of) from the filesystem. The command is run under an account specified by an AuthorizedKeysCommandUser sshd_config(5) option.
 
-This allows us to execute an arbitary command when a login attemp it made via ssh. 
-In the case of this setup, it executes userkeys.sh 
+This allows us to execute an arbitary command when a login attemp it made via ssh.
+In the case of this setup, it executes userkeys.sh
 
 Depending on wether you are curling github API for keys [https://github.com/USER.keys] (for individual devs or extremelly small teams) or a s3 bucket object (one object per set of permissions), you will need to create your custom [userkeys.sh](userkeys.sh).
 
@@ -48,8 +48,8 @@ You can use `Match User` or `Match Group` to parse public keys against logins, b
 
 ssh public key historicly have been created with RSA algorithm. But like everytghing in tech, that's old by today's standards.
 
-The new shiny algorithm is [Ed25519](https://ed25519.cr.yp.to/). 
-It uses a Diffie-Hellman elliptic-curve, allowing it to be much smaller than tradicional RSA keys. 
+The new shiny algorithm is [Ed25519](https://ed25519.cr.yp.to/).
+It uses a Diffie-Hellman elliptic-curve, allowing it to be much smaller than tradicional RSA keys.
 Where a good RSA key starts in 2048 bits, an Ed25519 is just 256.
 
 Combine that with the easeness of reading, storing, curl them, you got a winner.
@@ -74,13 +74,17 @@ When curling against Internet webservices, developers need to account with servi
 
 [GitHub API rate limit](https://developer.github.com/v3/#rate-limiting) is of `60 requests per hour` for unauthenticated requests, and `5000` when used with OAuth.
 
-If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easilly reach the limit and prevent you from legitimately accessing your server.
-
 An AWS s3 bucket as a limit of `800 GET requests per second`.
+
+#### Cache
+
+If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easily reach the limit and prevent you from legitimately accessing your server.
+
+To avoid this, the response of the external request (either Github or AWS) is saved to the file `$HOME/.ssh/ak_cache` and cached for 5 minutes.
 
 ## Future Improvements
 
-Right now, we are querying GitHub user profiles for sshkeys. 
+Right now, we are querying GitHub user profiles for sshkeys.
 
 An advanced process can probably be developed using [GitHub GraphQL API](https://developer.github.com/early-access/graphql/) to queries Teams instead of users, allowing further control over Projects access
 
