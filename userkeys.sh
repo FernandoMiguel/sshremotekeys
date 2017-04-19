@@ -3,7 +3,7 @@
 set -e
 
 #############################################################################
-# Choose and uncomment one of the examples bellow or your own key repository. 
+# Modify and uncomment one of the examples bellow or your own key repository. 
 #############################################################################
 # uri="https://s3.amazonaws.com/BUCKET/devs.keys"
 # uri="https://github.com/""$USER"".keys"
