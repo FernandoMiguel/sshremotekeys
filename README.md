@@ -80,7 +80,7 @@ An AWS s3 bucket as a limit of `800 GET requests per second`.
 
 If you have many devs login into a server or even bot scanning (hence [Fail2Ban](https://github.com/FernandoMiguel/sshremotekeys#fail2ban-and-general-security)), your host can easily reach the limit and prevent you from legitimately accessing your server.
 
-To avoid this, the response of the external request (either Github or AWS) is saved to the file `$HOME/.ssh/ak_cache` and cached for 5 minutes.
+To minimise this, the response of the external request (either Github or AWS) is saved to the file `$HOME/.ssh/ak_cache` and cached for 5 minutes.
 
 ## Future Improvements
 
