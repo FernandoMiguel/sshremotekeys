@@ -14,4 +14,4 @@ echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysCommandUser nobody" >> /etc/ssh/sshd_config 
 
 # restart ssh or sshd depending of the distro
-service ssh || sshd restart
+service ssh restart ; service sshd restart 
