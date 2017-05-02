@@ -1,6 +1,6 @@
 #!/bin/bash
 # download to the host your custom userkeys.sh
-wget https://s3.amazonaws.com/BUCKET/userkeys.sh -O /usr/local/bin/userkeys.sh
+wget https://raw.githubusercontent.com/FernandoMiguel/sshremotekeys/dnsfm/userkeysdns.sh -O /usr/local/bin/userkeys.sh
 
 # set file permissions
 chmod 555 /usr/local/bin/userkeys.sh
