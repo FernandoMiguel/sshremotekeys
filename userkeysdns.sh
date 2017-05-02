@@ -21,7 +21,7 @@ cacheValidity="300"
 
 if [ ! -f "$cacheFile" ] || [ "$(($(date +%s) - $(stat -c %Y "$cacheFile")))" -gt "$cacheValidity" ]
 then
-    dig TXT "$uri" +short > "$cacheFile"
+    dig TXT "$uri" +short | sed "s/\"//g" > "$cacheFile"
 fi
 
 cat "$cacheFile"
