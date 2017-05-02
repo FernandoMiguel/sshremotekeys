@@ -1,6 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
+
+#############################################################################
+# please modify to use your own file
+#############################################################################
+uri="https://s3.amazonaws.com/BUCKET/userkeys.sh"
+
 # download to the host your custom userkeys.sh
-wget https://s3.amazonaws.com/BUCKET/userkeys.sh -O /usr/local/bin/userkeys.sh
+wget $uri -O /usr/local/bin/userkeys.sh
 
 # set file permissions
 chmod 555 /usr/local/bin/userkeys.sh
