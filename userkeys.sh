@@ -22,6 +22,11 @@ cacheValidity="300"
 
 if [ ! -f "$cacheFile" ] || [ "$(($(date +%s) - $(stat -c %Y "$cacheFile")))" -gt "$cacheValidity" ]
 then
+    if ! [ -x "$(command -v curl)" ]; then
+        wget -O "$cacheFile" "$uri"
+        exit 1
+    fi
+
     curl --fail --silent --output "$cacheFile" "$uri"
 fi
 
