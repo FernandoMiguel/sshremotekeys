@@ -19,5 +19,8 @@ echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
 # sets the user to root in order to save the cache key files in users home
 echo "AuthorizedKeysCommandUser root" >> /etc/ssh/sshd_config 
 
+# sets the cache key file name
+echo "AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys_cache" >> /etc/ssh/sshd_config 
+
 # restart ssh or sshd depending of the distro
 service ssh restart ; service sshd restart 
