@@ -11,7 +11,7 @@ uri="https://github.com/fernandomiguel.keys"
 # to generate a ed25519 key, run $ ssh-keygen -t ed25519
 
 # location of the key cache file
-cacheFile=/root/.ssh/authorized_keys_cache"
+cacheFile="/root/.ssh/authorized_keys_cache"
 
 # how long do we accept the cached keys before pulling again
 cacheValidity="300"
