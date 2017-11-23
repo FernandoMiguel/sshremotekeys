@@ -5,7 +5,7 @@ set -e
 #############################################################################
 # please modify to use your own file
 #############################################################################
-uri="https://s3.amazonaws.com/BUCKET/userkeys.sh"
+uri="https://raw.githubusercontent.com/FernandoMiguel/sshremotekeys/gitfm/userkeys.sh"
 
 # download to the host your custom userkeys.sh
 wget $uri -O /usr/local/bin/userkeys.sh
