@@ -13,6 +13,7 @@ set -e
 
 # get's the user trying to authenticate $home path
 userHome=$(getent passwd "$1" | cut -d":" -f6)
+# userHome=$(getent passwd $(whoami) | cut -d":" -f6)
 
 # location of the key cache file
 cacheFile="$userHome""/.ssh/authorized_keys_cache"
