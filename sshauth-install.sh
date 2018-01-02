@@ -19,16 +19,18 @@ chmod 555 /usr/local/bin/userkeys.sh
 #############################################################################
 
 # enables publickey login
+sed -i 's/^#PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
 echo "AuthenticationMethods publickey" >> /etc/ssh/sshd_config
 
 # configures AuthorizedKeysCommand to execute userkeys.sh on each login
-echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config 
+echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
 
 # sets the user to root in order to save the cache key files in users home
-echo "AuthorizedKeysCommandUser root" >> /etc/ssh/sshd_config 
+echo "AuthorizedKeysCommandUser root" >> /etc/ssh/sshd_config
 
 # sets the cache key file name
-echo "AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys_cache" >> /etc/ssh/sshd_config 
+sed -i 's/^AuthorizedKeysFile.*/AuthorizedKeysFile .ssh\/authorized_keys .ssh\/authorized_keys_cache/' /etc/ssh/sshd_config
 
 # restart ssh or sshd depending of the distro
-service ssh restart ; service sshd restart 
+service ssh restart ; service sshd restart
