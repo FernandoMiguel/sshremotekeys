@@ -21,7 +21,6 @@ chmod 555 /usr/local/bin/userkeys.sh
 # enables publickey login
 sed -i 's/^#PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
 sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
-echo "AuthenticationMethods publickey" >> /etc/ssh/sshd_config
 
 # configures AuthorizedKeysCommand to execute userkeys.sh on each login
 echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
