@@ -8,7 +8,7 @@ set -e
 uri="https://s3.amazonaws.com/BUCKET/userkeys.sh"
 
 # download to the host your custom userkeys.sh
-wget $uri -O /usr/local/bin/userkeys.sh
+curl $uri --create-dirs -o /usr/local/bin/userkeys.sh
 
 # set file permissions
 chmod 555 /usr/local/bin/userkeys.sh
