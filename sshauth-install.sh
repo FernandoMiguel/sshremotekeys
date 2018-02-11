@@ -32,5 +32,8 @@ echo "AuthorizedKeysCommandUser root" >> /etc/ssh/sshd_config
 # sets the cache key file name
 sed -i 's/^AuthorizedKeysFile.*/AuthorizedKeysFile .ssh\/authorized_keys .ssh\/authorized_keys_cache/' /etc/ssh/sshd_config
 
+# make sure ~/.ssh exists
+mkdir /root/.ssh
+
 # restart ssh or sshd depending of the distro
 service ssh restart ; service sshd restart
