@@ -19,8 +19,8 @@ chmod 555 /usr/local/bin/userkeys.sh
 #############################################################################
 
 # enables publickey login
-sed -i 's/^#PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
-sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
+sed -i 's/PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 # configures AuthorizedKeysCommand to execute userkeys.sh on each login
 echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
@@ -29,7 +29,7 @@ echo "AuthorizedKeysCommand /usr/local/bin/userkeys.sh" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysCommandUser root" >> /etc/ssh/sshd_config
 
 # sets the cache key file name
-sed -i 's/^AuthorizedKeysFile.*/AuthorizedKeysFile .ssh\/authorized_keys .ssh\/authorized_keys_cache/' /etc/ssh/sshd_config
+sed -i 's/AuthorizedKeysFile.*/AuthorizedKeysFile .ssh\/authorized_keys .ssh\/authorized_keys_cache/' /etc/ssh/sshd_config
 
 # make sure all host keys exist
 ssh-keygen -A
